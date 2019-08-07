@@ -1,0 +1,86 @@
+// - id
+// - name
+// - price
+
+[
+    {
+        "name": "Cà phê đá S",
+        "price": 14000
+    },
+    {
+        "name": "Cà phê đá M",
+        "price": 19000
+    },
+    {
+        "name": "Cà phê sữa S",
+        "price": 16000
+    },
+    {
+        "name": "Cà phê sữa M",
+        "price": 22000
+    },
+    {
+        "name": "Bạc xỉu S",
+        "price": 16000
+    },
+    {
+        "name": "Bạc xỉu M",
+        "price": 22000
+    },
+    {
+        "name": "Cà phê sữa tươi S",
+        "price": 20000
+    },
+    {
+        "name": "Cà phê sữa tươi M",
+        "price": 26000
+    },
+    {
+        "name": "Ca cao S",
+        "price": 20000
+    },
+    {
+        "name": "Ca cao M",
+        "price": 26000
+    },
+    {
+        "name": "Trà đào S",
+        "price": 20000
+    },
+    {
+        "name": "Trà đào M",
+        "price": 26000
+    },
+    {
+        "name": "Trà vải S",
+        "price": 20000
+    },
+    {
+        "name": "Trà vải M",
+        "price": 26000
+    },
+    {
+        "name": "Trà tắc M",
+        "price": 14000
+    },
+    {
+        "name": "Trà tắc S",
+        "price": 19000
+    },
+    {
+        "name": "Trà chanh S",
+        "price": 14000
+    },
+    {
+        "name": "Trà chanh M",
+        "price": 19000
+    },
+    {
+        "name": "Cam ép S",
+        "price": 14000
+    },
+    {
+        "name": "Cam ép M",
+        "price": 19000
+    }
+]
