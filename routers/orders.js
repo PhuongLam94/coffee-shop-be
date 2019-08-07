@@ -18,7 +18,8 @@ router.post("/orders", async (ctx) => {
         createdDate: Date.now(),
         createdBy: ctx.app.currentUser.username,
         amount: requestBody.amount,
-        items: requestBody.items || []
+        items: requestBody.items || [],
+        isCompleted: false
     }
     var result = await ctx.app.orders.insertOne(order)
     httpHelper.handlResultDB(ctx, result, "Order is created successfully.")
@@ -38,5 +39,12 @@ router.get('/orders/:id', async (ctx) => {
     }
     
 })
-
+router.put('/orders/:id/complete', async (ctx) => {
+    try{
+        var result = await ctx.app.orders.updateOne({'_id': ObjectID(ctx.params.id)}, {"$set": {"isCompleted": true}})
+        httpHelper.handlResultDB(ctx, result, 'Order is marked as completed!')
+    } catch {
+        httpHelper.setResponseErr(ctx, "Order not found.", 404)        
+    }
+})
 module.exports = router

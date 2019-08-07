@@ -1,6 +1,7 @@
 const MongoClient = require('mongodb').MongoClient
-const MONGO_URL = "mongodb://localhost:27017"
-
+const env = require('../env')
+const MONGO_URL = env[process.argv[2]].MONGO_URL
+console.log(MONGO_URL)
 module.exports = function(app) {
     MongoClient.connect(MONGO_URL, {useNewUrlParser: true})
         .then((connection) => {
