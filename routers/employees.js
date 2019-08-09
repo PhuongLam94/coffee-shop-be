@@ -26,10 +26,8 @@ router.get('/employees/:id', async (ctx) => {
 {
     username
     password
-    name
-    dob
-    id card number
-    start date
+    role
+    <other employee info>
 }
 */
 router.post("/employees", async (ctx) => {
@@ -49,16 +47,11 @@ router.post("/employees", async (ctx) => {
                 role: requestBody.role
             })
             if (result.result.ok === 1){
-                console.log(result)
-                var employee = {
-                    userId: result.ops[0]['_id'],
-                    name: requestBody.name,
-                    dob: new Date(requestBody.dob).getTime(),
-                    idCardNo: requestBody.idCardNo,
-                    startDate: new Date(requestBody.startDate).getTime(),
-                    createdDate: Date.now(),
+                var employee = Object.assign({
                     createdBy: ctx.app.currentUser.username,
-                }
+                    createdAt: Date.now()
+                }, requestBody)
+                delete employee.username, employee.password, employee.role
                 result = await ctx.app.employees.insertOne(employee)
                 httpHelper.handlResultDB(ctx, result, 'Employee is created successfully.')
             } else {
@@ -71,5 +64,32 @@ router.post("/employees", async (ctx) => {
     }
    
 })
-
+/*{
+    date: 'MM/dd/yyyy'
+    slots: [
+        'in': 'hh:mm',
+        'out': 'hh:mm'
+    ]
+}*/
+router.put('/employees/:id*/working-time', async (ctx) => {
+    var employeeId
+    var requestBody = ctx.request.body
+    if (!ctx.params.id){
+        var userEmp = await ctx.app.employees.findOne({userId: ObjectID(ctx.app.currentUser.id)})
+        if (!userEmp){
+            httpHelper.setResponseErr(ctx, 'User is not associated with any employee.')
+        } else {
+            employeeId = userEmp['_id']
+        }
+    } else 
+        employeeId = new ObjectID(ctx.params.id)
+    
+    var employeeWorkingTime = Object.assign({
+        createdBy: ctx.app.currentUser.username,
+        createdAt: Date.now(),
+        employeeId: employeeId
+    }, requestBody)
+    var result = await ctx.app.employeeWorkingTimes.insertOne(employeeWorkingTime)
+    httpHelper.handlResultDB(ctx, result, 'Employee working time is saved successfully.')
+})
 module.exports = router
