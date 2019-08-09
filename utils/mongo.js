@@ -1,16 +1,16 @@
 const MongoClient = require('mongodb').MongoClient
-const env = require('../env')
-const MONGO_URL = env[process.argv[2]].MONGO_URL
-console.log(MONGO_URL)
+const env = require('../env')[process.argv[2] || 'local']
+const MONGO_URL = env.MONGO_URL
 module.exports = function(app) {
     MongoClient.connect(MONGO_URL, {useNewUrlParser: true})
         .then((connection) => {
-            var db = connection.db('koa-first-project')
+            var db = connection.db(env.DB_NAME)
             app.people = db.collection("people")
             app.users = db.collection("users")
             app.orders = db.collection("orders")
             app.orderDetail = db.collection("order-detail")
             app.drinks = db.collection("drinks").find().toArray()
+            app.employees = db.collection("employees")
             console.log("Database connection established")
         })
         .catch((err) => console.log(err))
