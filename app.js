@@ -39,4 +39,4 @@ app.use(authRouter.routes())
     .use(employeesRouter.routes())
     .use(employeesRouter.allowedMethods())
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
