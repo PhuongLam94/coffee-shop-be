@@ -31,7 +31,7 @@ router.get('/employees/:id', async (ctx) => {
 }
 */
 router.post("/employees", async (ctx) => {
-    if (ctx.app.currentUser.role === "admin"){
+    if (ctx.state.user.role === "admin"){
         var requestBody = ctx.request.body
         var existingAcc = await ctx.app.users.findOne({username: requestBody.username})
         if (existingAcc){
@@ -44,14 +44,21 @@ router.post("/employees", async (ctx) => {
             var result = await ctx.app.users.insertOne({
                 username: requestBody.username,
                 password: requestBody.password,
-                role: requestBody.role
+                role: requestBody.role,
+                createdBy: ctx.state.user.username,
+                createdAt: Date.now(),
             })
             if (result.result.ok === 1){
                 var employee = Object.assign({
-                    createdBy: ctx.app.currentUser.username,
-                    createdAt: Date.now()
+                    createdBy: ctx.state.user.username,
+                    createdAt: Date.now(),
+                    userId: result.ops[0]['_id']
                 }, requestBody)
-                delete employee.username, employee.password, employee.role
+                
+                var attrToDelete = ['username', 'password', 'role']
+                attrToDelete.forEach(attr => {
+                    delete employee[attr]
+                });
                 result = await ctx.app.employees.insertOne(employee)
                 httpHelper.handlResultDB(ctx, result, 'Employee is created successfully.')
             } else {
@@ -72,12 +79,15 @@ router.post("/employees", async (ctx) => {
     ]
 }*/
 router.put('/employees/:id*/working-time', async (ctx) => {
+    console.log(ctx.state.user)
     var employeeId
     var requestBody = ctx.request.body
     if (!ctx.params.id){
-        var userEmp = await ctx.app.employees.findOne({userId: ObjectID(ctx.app.currentUser.id)})
+        var userEmp = await ctx.app.employees.findOne({userId: ObjectID(ctx.state.user.id)})
+        console.log(userEmp)
         if (!userEmp){
             httpHelper.setResponseErr(ctx, 'User is not associated with any employee.')
+            return;
         } else {
             employeeId = userEmp['_id']
         }
@@ -85,7 +95,7 @@ router.put('/employees/:id*/working-time', async (ctx) => {
         employeeId = new ObjectID(ctx.params.id)
     
     var employeeWorkingTime = Object.assign({
-        createdBy: ctx.app.currentUser.username,
+        createdBy: ctx.state.user.username,
         createdAt: Date.now(),
         employeeId: employeeId
     }, requestBody)

@@ -10,13 +10,14 @@ router.use(jwt.errorHandler())
 
 
 router.post("/orders", async (ctx) => {
+    console.log(ctx.state.user)
     var requestBody = ctx.request.body
     for (var item of requestBody.items){
         item['_id'] = ObjectID(item['_id'])
     }
     var order = {
         createdDate: Date.now(),
-        createdBy: ctx.app.currentUser.username,
+        createdBy: ctx.state.user.username,
         amount: requestBody.amount,
         items: requestBody.items || [],
         isCompleted: false

@@ -29,7 +29,7 @@ router.post("/users", async (ctx) => {
     }
 })
 router.put('/users/change-password', async (ctx) => {
-    var currentUsername = ctx.app.currentUser.username
+    var currentUsername = ctx.state.user.username
     var oldPass = encrypt(ctx.request.body.oldPass)
     var docQuery = {username: currentUsername, password: oldPass}
     var account = await ctx.app.users.findOne(docQuery)
@@ -49,9 +49,9 @@ router.put('/users/change-password', async (ctx) => {
         ctx.body = {message: "Incorrect password."}
     }
 })
-router.get('/users/detail', async (ctx) => {
-    var username = ctx.request.query.username || ctx.app.currentUser.username
-    if (ctx.app.currentUser.username === username || ctx.app.currentUser.role === 'admin'){
+router.get('/users/:id*/detail', async (ctx) => {
+    var username = ctx.request.params.username || ctx.state.user.username
+    if (ctx.state.user.username === username || ctx.state.user.role === 'admin'){
         var result = await ctx.app.users.findOne({"username": username})
         if (result)
             httpHelper.setResponseBody(ctx, result)

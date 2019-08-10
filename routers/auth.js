@@ -13,11 +13,12 @@ router.post("/auth", async (ctx) => {
 
     if (account){
         var employee = await ctx.app.employees.findOne({userId: account['_id']})
-        ctx.app.currentUser = {username: username, id: account['_id'], role: account.role}
         ctx.body = {
             token: jwt.issue({
-                user: account.username,
+                username: username, 
+                id: account['_id'], 
                 role: account.role,
+
             }),
             role: account.role,
             employeeName: employee ? employee.name : username

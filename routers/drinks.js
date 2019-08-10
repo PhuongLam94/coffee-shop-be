@@ -9,7 +9,6 @@ router.use(jwt.errorHandler())
     .use(jwt.jwt())
 
 router.get('/drinks', async (ctx) => {
-    console.log(ctx.app.drinks)
     ctx.body = await ctx.app.drinks
 })
 
