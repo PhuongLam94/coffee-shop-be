@@ -20,10 +20,10 @@ router.post("/orders", async (ctx) => {
         createdBy: ctx.state.user.username,
         amount: requestBody.amount,
         items: requestBody.items || [],
-        isCompleted: false
+        isCompleted: true
     }
     var result = await ctx.app.orders.insertOne(order)
-    httpHelper.handlResultDB(ctx, result, "Order is created successfully.")
+    httpHelper.handleResultDB(ctx, result, "Đơn hàng được tạo thành công!")
 })
 router.get('/orders', async (ctx) => {
     ctx.body = await ctx.app.orders.find().toArray()
@@ -34,18 +34,18 @@ router.get('/orders/:id', async (ctx) => {
         if (result)
             httpHelper.setResponseBody(ctx, result)
         else
-            httpHelper.setResponseErr(ctx, "Order not found.", 404)
+            httpHelper.setResponseErr(ctx, "Không tìm thấy đơn hàng!", 404)
     } catch {
-        httpHelper.setResponseErr(ctx, "Order not found.", 404)
+        httpHelper.setResponseErr(ctx, "Không tìm thấy đơn hàng!", 404)
     }
     
 })
 router.put('/orders/:id/complete', async (ctx) => {
     try{
         var result = await ctx.app.orders.updateOne({'_id': ObjectID(ctx.params.id)}, {"$set": {"isCompleted": true}})
-        httpHelper.handlResultDB(ctx, result, 'Order is marked as completed!')
+        httpHelper.handleResultDB(ctx, result, 'Đơn hàng đã hoàn thành!')
     } catch {
-        httpHelper.setResponseErr(ctx, "Order not found.", 404)        
+        httpHelper.setResponseErr(ctx, "Không tìm thấy đơn hàng!", 404)        
     }
 })
 module.exports = router

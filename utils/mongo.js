@@ -12,6 +12,7 @@ module.exports = function(app) {
             app.drinks = db.collection("drinks").find().toArray()
             app.employees = db.collection("employees")
             app.employeeWorkingTimes = db.collection("employee-working-times")
+            app.expenses = db.collection("expenses")
             console.log("Database connection established")
         })
         .catch((err) => console.log(err))

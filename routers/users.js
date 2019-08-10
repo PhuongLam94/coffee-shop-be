@@ -56,9 +56,9 @@ router.get('/users/:id*/detail', async (ctx) => {
         if (result)
             httpHelper.setResponseBody(ctx, result)
         else
-            httpHelper.setResponseErr(ctx, "User not found", 404)
+            httpHelper.setResponseErr(ctx, "Không tìm thấy tài khoản!", 404)
     } else {
-        httpHelper.setResponseErr(ctx, "You don't have permission to get this user detail.", 403)
+        httpHelper.setResponseErr(ctx, "Bạn không có quyền xem chi tiết của tài khoản này!", 403)
     }
 })
 module.exports = router

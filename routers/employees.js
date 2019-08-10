@@ -17,9 +17,9 @@ router.get('/employees/:id', async (ctx) => {
         if (result)
             httpHelper.setResponseBody(ctx, result)
         else
-            httpHelper.setResponseErr(ctx, "Employee not found.", 404)
+            httpHelper.setResponseErr(ctx, "Không tìm thấy nhân viên!", 404)
     } catch {
-        httpHelper.setResponseErr(ctx, "Employee not found.", 404)
+        httpHelper.setResponseErr(ctx, "Không tìm thấy nhân viên!", 404)
     }
 })
 /*
@@ -60,14 +60,14 @@ router.post("/employees", async (ctx) => {
                     delete employee[attr]
                 });
                 result = await ctx.app.employees.insertOne(employee)
-                httpHelper.handlResultDB(ctx, result, 'Employee is created successfully.')
+                httpHelper.handleResultDB(ctx, result, 'Nhân viên được tạo thành công!')
             } else {
                 ctx.status = 400
-                ctx.body = {message: "Error happened."}
+                ctx.body = {message: "Có lỗi xảy ra!"}
             }
         }
     } else {
-        httpHelper.setResponseErr(ctx, "You don't have permission to create employee", 403)
+        httpHelper.setResponseErr(ctx, "Bạn không có quyền tạo nhân viên, vui lòng liên hệ admin!", 403)
     }
    
 })
@@ -86,7 +86,7 @@ router.put('/employees/:id*/working-time', async (ctx) => {
         var userEmp = await ctx.app.employees.findOne({userId: ObjectID(ctx.state.user.id)})
         console.log(userEmp)
         if (!userEmp){
-            httpHelper.setResponseErr(ctx, 'User is not associated with any employee.')
+            httpHelper.setResponseErr(ctx, 'Account không được liên kết với nhân viên nào!')
             return;
         } else {
             employeeId = userEmp['_id']
@@ -100,6 +100,6 @@ router.put('/employees/:id*/working-time', async (ctx) => {
         employeeId: employeeId
     }, requestBody)
     var result = await ctx.app.employeeWorkingTimes.insertOne(employeeWorkingTime)
-    httpHelper.handlResultDB(ctx, result, 'Employee working time is saved successfully.')
+    httpHelper.handleResultDB(ctx, result, 'Giờ làm được tạo thành công!')
 })
 module.exports = router
