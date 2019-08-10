@@ -9,7 +9,10 @@ router.use(jwt.errorHandler())
     .use(jwt.jwt())
 
 router.get('/employees', async (ctx) => {
-    ctx.body = await ctx.app.orders.find().toArray()
+    if (ctx.state.user.role === "admin")
+        ctx.body = await ctx.app.orders.find().toArray()
+    else
+        httpHelper.setResponseErr(ctx, "Bạn không có quyền xem danh sách nhân viên!", 403)
 })
 router.get('/employees/:id', async (ctx) => {
     try{
@@ -36,7 +39,7 @@ router.post("/employees", async (ctx) => {
         var existingAcc = await ctx.app.users.findOne({username: requestBody.username})
         if (existingAcc){
             ctx.status = 400
-            ctx.body = {message: "Username is existing, please use another username"}
+            ctx.body = {message: "Username đã tồn tại, vui lòng chọn username khác!"}
         } else {
             requestBody.password = encrypt(requestBody.password)
             if (!requestBody.role)
@@ -79,13 +82,11 @@ router.post("/employees", async (ctx) => {
     ]
 }*/
 router.put('/employees/:id*/working-time', async (ctx) => {
-    console.log(ctx.state.user)
     var employeeId
     var requestBody = ctx.request.body
     if (!ctx.params.id){
         var userEmp = await ctx.app.employees.findOne({userId: ObjectID(ctx.state.user.id)})
-        console.log(userEmp)
-        if (!userEmp){
+       if (!userEmp){
             httpHelper.setResponseErr(ctx, 'Account không được liên kết với nhân viên nào!')
             return;
         } else {
@@ -101,5 +102,6 @@ router.put('/employees/:id*/working-time', async (ctx) => {
     }, requestBody)
     var result = await ctx.app.employeeWorkingTimes.insertOne(employeeWorkingTime)
     httpHelper.handleResultDB(ctx, result, 'Giờ làm được tạo thành công!')
+   
 })
 module.exports = router
