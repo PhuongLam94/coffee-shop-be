@@ -10,7 +10,7 @@ router.use(jwt.errorHandler())
 
 router.get('/employees', async (ctx) => {
     if (ctx.state.user.role === "admin")
-        ctx.body = await ctx.app.orders.find().toArray()
+        ctx.body = await ctx.app.employees.find().toArray()
     else
         httpHelper.setResponseErr(ctx, "Bạn không có quyền xem danh sách nhân viên!", 403)
 })
@@ -54,11 +54,10 @@ router.post("/employees", async (ctx) => {
             if (result.result.ok === 1){
                 var employee = Object.assign({
                     createdBy: ctx.state.user.username,
-                    createdAt: Date.now(),
-                    userId: result.ops[0]['_id']
+                    createdAt: Date.now()
                 }, requestBody)
                 
-                var attrToDelete = ['username', 'password', 'role']
+                var attrToDelete = ['password', 'role']
                 attrToDelete.forEach(attr => {
                     delete employee[attr]
                 });
