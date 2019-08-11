@@ -26,5 +26,10 @@ router.post('/expenses', async (ctx) => {
     var message = (expense.type === 'in'?'Thu nhập':'Chi phí') + ' được tạo thành công!'
     httpHelper.handleResultDB(ctx, result, message)
 })
-
+router.get('/expenses', async (ctx) => {
+    if (ctx.state.user.role === "admin")
+        ctx.body = await ctx.app.expenses.find().toArray()
+    else
+        httpHelper.setResponseErr(ctx, "Bạn không có quyền xem danh sách chi phí/thu nhập!", 403)
+})
 module.exports = router

@@ -103,4 +103,7 @@ router.put('/employees/:id*/working-time', async (ctx) => {
     httpHelper.handleResultDB(ctx, result, 'Giờ làm được tạo thành công!')
    
 })
+router.get('/employees/:id*/cal-working-time', async (ctx) => {
+    
+})
 module.exports = router

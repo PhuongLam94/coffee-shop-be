@@ -1,0 +1,157 @@
+[
+    {
+        "name": "Cà phê Laha",
+        "unit": {
+            "storage": "kg",
+            "recipe": "g"
+        },
+        "defaultPrice": 220000
+    },
+    {
+        "name": "Cà phê khác",
+        "unit": {
+            "storage": "kg",
+            "recipe": "g"
+        },
+        "defaultPrice": 130000
+    },
+    {
+        "name": "Ca cao",
+        "unit": {
+            "storage": "kg",
+            "recipe": "g"
+        },
+        "defaultPrice": 360000
+    },
+    {
+        "name": "Trà xanh",
+        "unit": {
+            "storage": "kg",
+            "recipe": "ml"
+        },
+        "defaultPrice": 100000
+    },
+    {
+        "name": "Trà đen",
+        "unit": {
+            "storage": "kg",
+            "recipe": "ml"
+        },
+        "defaultPrice": 200000
+    },
+    {
+        "name": "Đường",
+        "unit": {
+            "storage": "kg",
+            "recipe": "ml"
+        },
+        "defaultPrice": 20500
+    },
+    {
+        "name": "Sữa đặc",
+        "unit": {
+            "storage": "hộp",
+            "recipe": "ml"
+        },
+        "defaultPrice": 54000
+    },
+    {
+        "name": "Sữa tươi",
+        "unit": {
+            "storage": "hộp",
+            "recipe": "ml"
+        },
+        "defaultPrice": 22000
+    },{
+        "name": "Đào",
+        "unit": {
+            "storage": "hộp",
+            "recipe": "miếng"
+        },
+        "defaultPrice": 45000
+    },{
+        "name": "Vải",
+        "unit": {
+            "storage": "hộp",
+            "recipe": "miếng"
+        },
+        "defaultPrice": 45000
+    },{
+        "name": "Siro đào",
+        "unit": {
+            "storage": "chai",
+            "recipe": "ml"
+        },
+        "defaultPrice": 70000
+    },{
+        "name": "Siro vải",
+        "unit": {
+            "storage": "chai",
+            "recipe": "ml"
+        },
+        "defaultPrice": 70000
+    },{
+        "name": "Tắc",
+        "unit": {
+            "storage": "kg",
+            "recipe": "ml"
+        },
+        "defaultPrice": 18000
+    },{
+        "name": "Chanh",
+        "unit": {
+            "storage": "kg",
+            "recipe": "ml"
+        },
+        "defaultPrice": 20000
+    },{
+        "name": "Cam",
+        "unit": {
+            "storage": "kg",
+            "recipe": "ml"
+        },
+        "defaultPrice": 20000
+    },{
+        "name": "C2",
+        "unit": {
+            "storage": "chai",
+            "recipe": "chai"
+        },
+        "defaultPrice": 10000
+    },{
+        "name": "Ô long",
+        "unit": {
+            "storage": "chai",
+            "recipe": "chai"
+        },
+        "defaultPrice": 10000
+    },{
+        "name": "Pepsi",
+        "unit": {
+            "storage": "lon",
+            "recipe": "lon"
+        },
+        "defaultPrice": 10000
+    },{
+        "name": "Sting",
+        "unit": {
+            "storage": "chai",
+            "recipe": "chai"
+        },
+        "defaultPrice": 10000
+    },{
+        "name": "Bò húc",
+        "unit": {
+            "storage": "lon",
+            "recipe": "lon"
+        },
+        "defaultPrice": 10000
+    },{
+        "name": "Khăn lạnh",
+        "unit": {
+            "storage": "bịch",
+            "recipe": "bịch"
+        },
+        "defaultPrice": 10000
+    }
+]
