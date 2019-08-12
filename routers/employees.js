@@ -122,7 +122,7 @@ router.put('/employees/:id*/working-time', async (ctx) => {
     var employeeId
     var requestBody = ctx.request.body
     if (!ctx.params.id){
-        var userEmp = await ctx.app.employees.findOne({userId: ObjectID(ctx.state.user.id)})
+        var userEmp = await ctx.app.employees.findOne({username: ctx.state.user.username})
        if (!userEmp){
             httpHelper.setResponseErr(ctx, 'Account không được liên kết với nhân viên nào!')
             return;
