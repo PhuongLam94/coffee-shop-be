@@ -14,6 +14,7 @@ router.post("/auth", async (ctx) => {
     if (account){
         var employee = await ctx.app.employees.findOne({userId: account['_id']})
         ctx.body = {
+            message: "Đăng nhập thành công!",
             token: jwt.issue({
                 username: username, 
                 id: account['_id'], 
@@ -25,7 +26,7 @@ router.post("/auth", async (ctx) => {
         }
     } else {
         ctx.status = 401
-        ctx.body = {message: "Invalid login"}
+        ctx.body = {message: "Sai username/password!"}
     }
 })
 module.exports = router

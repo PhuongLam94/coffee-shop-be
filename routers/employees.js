@@ -8,6 +8,44 @@ var router = new Router()
 router.use(jwt.errorHandler())
     .use(jwt.jwt())
 
+    router.get('/employees/working-times', async (ctx) => {
+        if (ctx.state.user.role === "admin"){
+            var fromDate = parseInt(ctx.request.query.fromDate)
+            var toDate = parseInt(ctx.request.query.toDate)
+            var workingTimeList
+            if (!fromDate){
+                workingTimeList = await ctx.app.employeeWorkingTimes.find().sort({employeeId: 1, date: -1}).toArray()
+            } else {
+                var query =  {"$gte": fromDate, "$lte": toDate}
+                workingTimeList = await ctx.app.employeeWorkingTimes.find({
+                    date: query
+                }).sort({employeeId: 1, date: -1}).toArray()
+            }
+            var empWorkingTimeMap = new Map()
+            for (var workingTime of workingTimeList){
+                var empId = workingTime.employeeId.toString()
+                var millisec = 0
+                workingTime.slots.forEach(slot => millisec += slot.out-slot.in)
+                if (!empWorkingTimeMap[empId]){
+                    var empInfo = await ctx.app.employees.findOne({_id: workingTime.employeeId})
+                        empWorkingTimeMap[empId] = {
+                            id: empId,
+                            name: empInfo.name,
+                            total: millisec,
+                            workingTimes: [workingTime]
+                        }
+                                      
+                } else {
+                    empWorkingTimeMap[empId].total += millisec
+                    empWorkingTimeMap[empId].workingTimes.push(workingTime)
+                }
+            }
+            console.log("xyz", [...empWorkingTimeMap.values()])
+            httpHelper.setResponseBody(ctx, Object.values(empWorkingTimeMap))
+        }
+        else
+            httpHelper.setResponseErr(ctx, "Bạn không có quyền xem báo cáo giờ làm nhân viên!", 403)
+    })
 router.get('/employees', async (ctx) => {
     if (ctx.state.user.role === "admin")
         ctx.body = await ctx.app.employees.find().toArray()
@@ -103,7 +141,5 @@ router.put('/employees/:id*/working-time', async (ctx) => {
     httpHelper.handleResultDB(ctx, result, 'Giờ làm được tạo thành công!')
    
 })
-router.get('/employees/:id*/cal-working-time', async (ctx) => {
-    
-})
+
 module.exports = router
