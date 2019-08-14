@@ -17,6 +17,7 @@ router.post("/orders", async (ctx) => {
     }
     var order = {
         createdDate: Date.now(),
+        date: Date.now(),
         createdBy: ctx.state.user.username,
         amount: requestBody.amount,
         items: requestBody.items || [],
