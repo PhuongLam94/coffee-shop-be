@@ -9,14 +9,13 @@ router.use(jwt.errorHandler())
     .use(jwt.jwt())
 
     router.get('/employees/:username*/working-times', async (ctx) => {
-        if (ctx.state.user.role === "admin"){
+        if (ctx.state.user.role === "admin" || ctx.state.user.username === ctx.params.username){
             var fromDate = parseInt(ctx.request.query.fromDate)
             var toDate = parseInt(ctx.request.query.toDate)
             var workingTimeList
             var query = {}
             if (fromDate){
                 query = Object.assign(query, {date: {"$gte": fromDate, "$lte": toDate}})
-                workingTimeList = await ctx.app.employeeWorkingTimes.find().sort({employeeId: 1, date: -1}).toArray()
             }
             if (ctx.params.username){
                 var selectedEmp = await ctx.app.employees.findOne({'username': ctx.params.username})

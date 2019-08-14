@@ -1,141 +1,565 @@
-
-[{
-    "name": "Bạc xỉu S",
-    "price": 16000,
-    "type": "Cà phê - ca cao"
-  },
+[
   {
     "name": "Cà phê đá S",
     "price": 14000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cflaha",
+        "quantity": 15
+      },
+      {
+        "code": "duong",
+        "quantity": 15
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Cà phê đá M",
     "price": 19000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cflaha",
+        "quantity": 22.5
+      },
+      {
+        "code": "duong",
+        "quantity": 25
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Cà phê sữa S",
     "price": 16000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cflaha",
+        "quantity": 15
+      },
+      {
+        "code": "suadac",
+        "quantity": 30
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Cà phê sữa M",
     "price": 22000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cflaha",
+        "quantity": 22.5
+      },
+      {
+        "code": "suadac",
+        "quantity": 40
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Bạc xỉu S",
+    "price": 16000,
+    "type": "Cà phê - ca cao",
+    "recipe": [
+      {
+        "code": "cflaha",
+        "quantity": 7.5
+      },
+      {
+        "code": "suadac",
+        "quantity": 45
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Bạc xỉu M",
     "price": 22000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cflaha",
+        "quantity": 15
+      },
+      {
+        "code": "suadac",
+        "quantity": 60
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Cà phê sữa tươi S",
     "price": 20000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cflaha",
+        "quantity": 7.5
+      },
+      {
+        "code": "suadac",
+        "quantity": 20
+      },
+      {
+        "code": "suatuoi",
+        "quantity": 80
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Cà phê sữa tươi M",
     "price": 26000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cflaha",
+        "quantity": 15
+      },
+      {
+        "code": "suadac",
+        "quantity": 30
+      },
+      {
+        "code": "suatuoi",
+        "quantity": 120
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Ca cao S",
     "price": 20000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cacao",
+        "quantity": 8
+      },
+      {
+        "code": "suadac",
+        "quantity": 40
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Ca cao M",
     "price": 26000,
-    "type": "Cà phê - ca cao"
+    "type": "Cà phê - ca cao",
+    "recipe":[
+      {
+        "code": "cacao",
+        "quantity": 10
+      },
+      {
+        "code": "suadac",
+        "quantity": 60
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà đào S",
     "price": 20000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 80
+      },
+      {
+        "code": "dao",
+        "quantity": 2
+      },
+      {
+        "code": "sirodao",
+        "quantity": 15
+      },
+      {
+        "code": "duong",
+        "quantity": 20
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      },
+      {
+        "code": "muongnhua",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà đào M",
     "price": 26000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 100
+      },
+      {
+        "code": "dao",
+        "quantity": 3
+      },
+      {
+        "code": "sirodao",
+        "quantity": 20
+      },
+      {
+        "code": "duong",
+        "quantity": 25
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      },
+      {
+        "code": "muongnhua",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà vải S",
     "price": 20000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 80
+      },
+      {
+        "code": "vai",
+        "quantity": 2
+      },
+      {
+        "code": "sirovai",
+        "quantity": 15
+      },
+      {
+        "code": "duong",
+        "quantity": 20
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      },
+      {
+        "code": "muongnhua",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà vải M",
     "price": 26000,
-    "type": "Trà - nước ép"
-  },
-  {
-    "name": "Trà tắc M",
-    "price": 14000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 100
+      },
+      {
+        "code": "vai",
+        "quantity": 3
+      },
+      {
+        "code": "sirovai",
+        "quantity": 20
+      },
+      {
+        "code": "duong",
+        "quantity": 25
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      },
+      {
+        "code": "muongnhua",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà tắc S",
+    "price": 14000,
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 80
+      },
+      {
+        "code": "tac",
+        "quantity": 20
+      },
+      {
+        "code": "tacngam",
+        "quantity": 2
+      },
+      {
+        "code": "duong",
+        "quantity": 40
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      },
+      {
+        "code": "muongnhua",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Trà tắc M",
     "price": 19000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 100
+      },
+      {
+        "code": "tac",
+        "quantity": 30
+      },
+      {
+        "code": "tacngam",
+        "quantity": 3
+      },
+      {
+        "code": "duong",
+        "quantity": 60
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      },
+      {
+        "code": "muongnhua",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà chanh S",
     "price": 14000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 80
+      },
+      {
+        "code": "chanhknorr",
+        "quantity": 20
+      },
+      {
+        "code": "duong",
+        "quantity": 40
+      },
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà chanh M",
     "price": 19000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe":[
+      {
+        "code": "traden",
+        "quantity": 100
+      },
+      {
+        "code": "chanhknorr",
+        "quantity": 30
+      },
+      {
+        "code": "duong",
+        "quantity": 80
+      },
+      {
+        "code": "lym",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Cam ép S",
     "price": 14000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe": [
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Cam ép M",
     "price": 19000,
-    "type": "Trà - nước ép"
+    "type": "Trà - nước ép",
+    "recipe": [
+      {
+        "code": "lys",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "C2",
     "price": 12000,
-    "type": "Nước ngọt"
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "c2",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Ô long",
     "price": 12000,
-    "type": "Nước ngọt"
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "olong",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Sting",
     "price": 15000,
-    "type": "Nước ngọt"
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "sting",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Pepsi",
     "price": 15000,
-    "type": "Nước ngọt"
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "pepsi",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Bò húc",
     "price": 17000,
-    "type": "Nước ngọt"
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "bohuc",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Trà đá ly",
     "price": 2000,
-    "type": "Khác"
+    "type": "Khác",
+    "recipe": [
+      {
+        "code": "traxanh",
+        "quantity": 100
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Tẩy đá",
     "price": 2000,
-    "type": "Khác"
+    "type": "Khác",
+    "recipe":[
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
   },
   {
     "name": "Khăn lạnh",
     "price": 2000,
-    "type": "Khác"
+    "type": "Khác",
+    "recipe": [
+      {
+        "code": "khanlanh",
+        "quantity": 1
+      }
+    ]
   }]
