@@ -81,8 +81,10 @@ router.get('/expenses', async (ctx) => {
             })
 
         })
+        var finalExpenseList = expenseList.concat(Object.values(orderMap), inventoryRecords)
+        finalExpenseList.sort((a, b) => a.date > b.date? -1:1)
         var responseBody = {
-            expenseList: expenseList.concat(Object.values(orderMap), inventoryRecords),
+            expenseList: finalExpenseList,
             outcome: outcome,
             income: income,
             revenue: revenue,
