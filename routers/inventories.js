@@ -79,16 +79,16 @@ router.get('/inventories', async (ctx) => {
         Object.values(ingredientMap).forEach(ingredient => {
             var ingredientInfo = ingredient.ingredientInfo
             Object.values(ingredient.drinks).forEach(drink => {
-                ingredient.inventories.push({
-                    quantity: drink.quantity*drink.amountPerDrink*ingredientInfo.ratio.storage/ingredientInfo.ratio.recipe,
-                    description: 'Dùng cho '+drink.name,
-                    type: 'out'
-                })
+                if (drink.quantity >0)
+                    ingredient.inventories.push({
+                        quantity: drink.quantity*drink.amountPerDrink*ingredientInfo.ratio.storage/ingredientInfo.ratio.recipe,
+                        description: 'Dùng cho '+drink.name,
+                        type: 'out'
+                    })
             })
             ingredient.amount = ingredient.storageAmount - ingredient.orderAmount*ingredientInfo.ratio.storage/ingredientInfo.ratio.recipe
 
         })
-        console.log(ingredientMap)
         ctx.body = Object.values(ingredientMap)
     }
     else
