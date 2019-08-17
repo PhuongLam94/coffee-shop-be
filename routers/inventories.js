@@ -48,7 +48,8 @@ router.get('/inventories', async (ctx) => {
                 ingredientInfo: ingredient, 
                 storageAmount: 0, 
                 orderAmount: 0, 
-                inventories: [] }
+                inventories: [],
+                drinks: new Map() }
         )
         inventoryList.forEach(inventory => {
             var ingredientCode = inventory.ingredient.code
@@ -63,13 +64,31 @@ router.get('/inventories', async (ctx) => {
         })
         Object.values(drinkMap).forEach(drink => {
             drink.recipe.forEach(ingredient => {
-                ingredientMap[ingredient.code].orderAmount += ingredient.quantity*drink.quantity
+                var ingredientMapItem = ingredientMap[ingredient.code]
+                ingredientMapItem.orderAmount += ingredient.quantity*drink.quantity
+                if(ingredientMapItem.drinks[drink._id])
+                    ingredientMapItem.drinks[drink._id].quantity += drink.quantity
+                else
+                ingredientMapItem.drinks[drink._id] = {
+                    quantity: drink.quantity,
+                    amountPerDrink: ingredient.quantity,
+                    name: drink.name
+                }
             })
         })
-        Object.entries(ingredientMap).forEach(entry => {
-            var ingredient = entry[1]
-            ingredient.amount = ingredient.storageAmount*ingredient.ingredientInfo.ratio.storage - ingredient.orderAmount*ingredient.ingredientInfo.ratio.recipe
+        Object.values(ingredientMap).forEach(ingredient => {
+            var ingredientInfo = ingredient.ingredientInfo
+            Object.values(ingredient.drinks).forEach(drink => {
+                ingredient.inventories.push({
+                    quantity: drink.quantity*drink.amountPerDrink*ingredientInfo.ratio.storage/ingredientInfo.ratio.recipe,
+                    description: 'Dùng cho '+drink.name,
+                    type: 'out'
+                })
+            })
+            ingredient.amount = ingredient.storageAmount - ingredient.orderAmount*ingredientInfo.ratio.storage/ingredientInfo.ratio.recipe
+
         })
+        console.log(ingredientMap)
         ctx.body = Object.values(ingredientMap)
     }
     else

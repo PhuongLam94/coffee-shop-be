@@ -51,10 +51,11 @@ router.get('/expenses', async (ctx) => {
             var orderDate = format(order.date, 'MMDDYYYY')
             if (!orderMap[orderDate]) {
                 orderMap[orderDate] = {
-                    type: "in",
+                    type: "revenue",
                     amount: order.amount,
                     date: order.date,
-                    description: "Thu nhập ngày "+format(order.date, 'DD/MM/YYYY')
+                    description: "Doanh thu ngày "+format(order.date, 'DD/MM/YYYY'),
+                    createdAt: order.date
                 }
             } else {
                 orderMap[orderDate].amount += order.amount
@@ -74,10 +75,11 @@ router.get('/expenses', async (ctx) => {
             if (inventory.description)
                 description += inventory.description
             inventoryRecords.push({
-                    type: inventory.type === "in"?"out":"in",
+                    type: inventory.type+'Inventory',
                     amount: inventory.price,
                     date: inventory.date,
-                    description: description
+                    description: description,
+                    createdAt: inventory.createdAt
             })
 
         })
