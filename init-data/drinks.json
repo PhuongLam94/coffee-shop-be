@@ -527,6 +527,141 @@
     ]
   },
   {
+    "name": "Cocalon",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "cocalon",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Nutri dâu",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "nutridau",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Nutri cam",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "nutricam",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Coca tăng lực",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "cocatangluc",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Trà chanh xả",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "trachanhxa",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Sprite",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "sprite",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Fanta",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "fanta",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Xá sị",
+    "price": 15000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "xasi",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Nước suối",
+    "price": 10000,
+    "type": "Nước ngọt",
+    "recipe": [
+      {
+        "code": "nuocsuoi",
+        "quantity": 1
+      },
+      {
+        "code": "lykhac",
+        "quantity": 1
+      }
+    ]
+  },
+  {
     "name": "Trà đá ly",
     "price": 2000,
     "type": "Khác",

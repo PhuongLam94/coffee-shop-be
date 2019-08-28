@@ -314,5 +314,115 @@
             "recipe": "50"
         },
         "defaultPrice": 15000
+    },
+    {
+        "name": "Coca lon",
+        "code": "cocalon",
+        "unit": {
+            "storage": "lon",
+            "recipe": "lon"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 7500
+    }, {
+        "name": "Nutri dâu",
+        "code": "nutridau",
+        "unit": {
+            "storage": "chai",
+            "recipe": "chai"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 8400
+    },{
+        "name": "Nutri cam",
+        "code": "nutricam",
+        "unit": {
+            "storage": "chai",
+            "recipe": "chai"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 8400
+    },{
+        "name": "Coca tăng lực",
+        "code": "cocatangluc",
+        "unit": {
+            "storage": "lon",
+            "recipe": "lon"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 7700
+    },{
+        "name": "Trà chanh xả",
+        "code": "trachanhxa",
+        "unit": {
+            "storage": "chai",
+            "recipe": "chai"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 6700
+    },{
+        "name": "Sprite",
+        "code": "sprite",
+        "unit": {
+            "storage": "lon",
+            "recipe": "lon"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 6700
+    },{
+        "name": "Fanta",
+        "code": "fanta",
+        "unit": {
+            "storage": "lon",
+            "recipe": "lon"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 6700
+    },{
+        "name": "Xá sị",
+        "code": "xasi",
+        "unit": {
+            "storage": "lon",
+            "recipe": "lon"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 5000
+    },{
+        "name": "Nước suối",
+        "code": "nuocsuoi",
+        "unit": {
+            "storage": "chai",
+            "recipe": "chai"
+        },
+        "ratio":{
+            "storage": "1",
+            "recipe": "1"
+        },
+        "defaultPrice": 3500
     }
+    
 ]
